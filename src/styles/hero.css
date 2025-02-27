@@ -107,6 +107,8 @@
   font-size: 25px;
   transition: 0.1s linear;
   margin-top: 1em;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .hero .viewMore:hover {

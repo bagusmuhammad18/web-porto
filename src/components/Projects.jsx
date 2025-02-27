@@ -3,6 +3,20 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 import "../styles/projects.css";
 
+// Fungsi buat kapital huruf pertama
+const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+const formatTechName = (key) => {
+  const formatted = key.replace(/([A-Z])/g, " $1").trim();
+  return formatted
+    .replace(/^Ui /i, "UI ")
+    .replace(/^Api /i, "API ")
+    .replace(/^Id /i, "ID ")
+    .replace(/^Io /i, "IO ");
+};
+
 function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -10,22 +24,22 @@ function Projects() {
     {
       id: 1,
       imgSrc: "/assets/img/swagger.png",
-      title: "Backend Web Marketplace Ikan",
+      title: "Fish Marketplace Web Backend",
       technologies: {
-        backend: "Node.js, Express.js",
-        database: "MongoDB",
-        cloudStorage: "Cloudinary",
-        authentication: "JWT, bcrypt",
-        fileUpload: "Multer",
-        apiTesting: "Postman",
+        Backend: "Node.js, Express.js",
+        Database: "MongoDB",
+        CloudStorage: "Cloudinary",
+        Authentication: "JWT, bcrypt",
+        FileUpload: "Multer",
+        ApiTesting: "Postman",
       },
       features: [
-        "CRUD Produk (dengan gambar dan kategori)",
-        "Keranjang belanja & kalkulasi total",
-        "Checkout & penyimpanan alamat pengiriman",
-        "Manajemen pesanan dengan update status",
-        "Login, registrasi, dan autentikasi JWT",
-        "Pencarian, filter, dan pagination produk",
+        "Product CRUD (with images and categories)",
+        "Shopping cart & total price calculation",
+        "Checkout & shipping address management",
+        "Order management with status updates",
+        "Login, registration, and JWT authentication",
+        "Product search, filtering, and pagination",
       ],
       githubLink: "https://github.com/bagusmuhammad18/projek-ikan",
       apiDocLink: "https://iwak.onrender.com/api-docs",
@@ -33,20 +47,56 @@ function Projects() {
     {
       id: 2,
       imgSrc: "/assets/img/sobatfeses.png",
-      alt: "sobatfeses",
-      title: "Sobat Feses Platform",
-      technologies: "Node.js, Express, MongoDB",
-      features: "User authentication, Data visualization, Real-time updates",
+      alt: "Digestive Disease Detection",
+      title: "AI Digestive Disease Detection Platform",
+      technologies: {
+        Frontend: "HTML, CSS, JavaScript",
+        MachineLearning: "TensorFlow.js",
+        UiLibraries: "Feather Icons, Google Fonts",
+        FormHandling: "FormSubmit",
+        Design: "Responsive Web Design",
+      },
+      features: [
+        "Early Detection of Digestive Diseases: Use AI to analyze stool images and provide health predictions.",
+        "Fast, Serverless Prediction Process: Run models directly in the browser, reducing latency and protecting user privacy.",
+        "Intuitive, Mobile-Friendly UI/UX: Easy navigation and seamless experience across devices.",
+        "Direct Contact Form: Enable users to easily reach out to the development team for support or inquiries.",
+        "Clear Call to Action: A standout 'Try Now' button encourages users to immediately explore the main feature.",
+      ],
       githubLink: "https://github.com/bagusmuhammad18/sobatfeses",
     },
     {
       id: 3,
       imgSrc: "/assets/img/yolo.png",
-      alt: "yolo",
+      alt: "YOLO Object Detection",
       title: "YOLO Object Detection",
-      technologies: "Python, OpenCV, YOLOv5",
-      features: "Real-time object detection, Custom model training",
-      githubLink: "https://github.com/bagusmuhammad18/yolo-detection",
+      technologies: {
+        language: "Python",
+        computerVision: "OpenCV, YOLOv5",
+      },
+      features: [
+        "Developed an object detection program using YOLOv5, utilizing only the CPU of an Intel NUC mini PC on the humanoid soccer field.",
+        "Achieved 89% accuracy and a speed of 40fps in detecting objects such as balls, goalposts, and robots.",
+      ],
+      youtubeLink: "https://youtu.be/Q7cPyaxAaFY",
+    },
+    {
+      id: 4,
+      imgSrc: "/assets/img/iconnect.png",
+      alt: "iConnect Sign Language Translator",
+      title: "iConnect Sign Language Translator",
+      technologies: {
+        Mobile: "Android",
+        MachineLearning: "TensorFlow",
+        Camera: "Android Camera API",
+        Testing: "Postman",
+      },
+      features: [
+        "Real-Time Sign Language Translation: Leverages TensorFlow models to interpret sign language through the Android camera instantly.",
+        "Extensive Vocabulary Support: Tested with the iConnect Video Dictionary, covering over 200 sign language words.",
+        "High Accuracy Performance: Achieved a 95% success rate in translating signs in real-time during rigorous testing.",
+      ],
+      githubLink: "https://github.com/frdslintang/IConnectAppFinalCapstone",
     },
   ];
 
@@ -55,7 +105,6 @@ function Projects() {
   };
 
   const handleImageClick = (project) => {
-    console.log("Clicked project:", project.title);
     setSelectedProject(project);
   };
 
@@ -81,37 +130,23 @@ function Projects() {
           </button>
         </header>
         <section className="popup-section">
-          <h3>Teknologi yang Digunakan</h3>
+          <h3>Technologies Used</h3>
           <ul className="tech-list">
-            <li>
-              <strong>Backend:</strong>{" "}
-              {selectedProject.technologies?.backend ||
-                selectedProject.technologies}
-            </li>
-            <li>
-              <strong>Database:</strong>{" "}
-              {selectedProject.technologies?.database}
-            </li>
-            <li>
-              <strong>Cloud Storage:</strong>{" "}
-              {selectedProject.technologies?.cloudStorage}
-            </li>
-            <li>
-              <strong>Autentikasi:</strong>{" "}
-              {selectedProject.technologies?.authentication}
-            </li>
-            <li>
-              <strong>File Upload:</strong>{" "}
-              {selectedProject.technologies?.fileUpload}
-            </li>
-            <li>
-              <strong>API Testing:</strong>{" "}
-              {selectedProject.technologies?.apiTesting}
-            </li>
+            {selectedProject.technologies &&
+              Object.entries(selectedProject.technologies).map(
+                ([key, value]) => (
+                  <li key={key}>
+                    <strong>
+                      {capitalizeFirstLetter(formatTechName(key))}:
+                    </strong>{" "}
+                    {value}
+                  </li>
+                )
+              )}
           </ul>
         </section>
         <section className="popup-section">
-          <h3>Fitur Utama</h3>
+          <h3>Main Features</h3>
           <ul className="feature-list">
             {selectedProject.features.map((feature, index) => (
               <li key={index}>{feature}</li>
@@ -121,15 +156,17 @@ function Projects() {
         <section className="popup-section">
           <h3>Links</h3>
           <ul className="link-list">
-            <li>
-              <a
-                href={selectedProject.githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub Repository
-              </a>
-            </li>
+            {selectedProject.githubLink && (
+              <li>
+                <a
+                  href={selectedProject.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub Repository
+                </a>
+              </li>
+            )}
             {selectedProject.apiDocLink && (
               <li>
                 <a
@@ -141,6 +178,17 @@ function Projects() {
                 </a>
               </li>
             )}
+            {selectedProject.youtubeLink && (
+              <li>
+                <a
+                  href={selectedProject.youtubeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Watch on YouTube
+                </a>
+              </li>
+            )}
           </ul>
         </section>
       </div>
@@ -149,7 +197,9 @@ function Projects() {
 
   return (
     <>
-      <h3 id="projects">Projects</h3>
+      <h3 id="projects">
+        <span className="underline"></span>Projects
+      </h3>
       <div className="project">
         {projectsData.map((project) => (
           <div

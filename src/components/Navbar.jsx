@@ -7,6 +7,13 @@ function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const scrollToSection = (id) => {
+    const section = document.querySelector(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   useEffect(() => {
     const wrapper = document.querySelector(".wrapper");
     if (!wrapper) {
@@ -36,29 +43,54 @@ function Navbar() {
       />
       <ul className={isMenuOpen ? "active" : ""}>
         <li>
-          <a href="#home" onClick={() => setIsMenuOpen(false)}>
+          <button
+            onClick={() => {
+              scrollToSection("#home");
+              setIsMenuOpen(false);
+            }}
+          >
             HOME
-          </a>
+          </button>
         </li>
         <li>
-          <a href="#about" onClick={() => setIsMenuOpen(false)}>
+          <button
+            onClick={() => {
+              scrollToSection("#about");
+              setIsMenuOpen(false);
+            }}
+          >
             ABOUT
-          </a>
+          </button>
         </li>
         <li>
-          <a href="#skills" onClick={() => setIsMenuOpen(false)}>
+          <button
+            onClick={() => {
+              scrollToSection("#skills");
+              setIsMenuOpen(false);
+            }}
+          >
             SKILLS
-          </a>
+          </button>
         </li>
         <li>
-          <a href="#projects" onClick={() => setIsMenuOpen(false)}>
+          <button
+            onClick={() => {
+              scrollToSection("#projects");
+              setIsMenuOpen(false);
+            }}
+          >
             PROJECTS
-          </a>
+          </button>
         </li>
         <li>
-          <a href="#contact" onClick={() => setIsMenuOpen(false)}>
+          <button
+            onClick={() => {
+              scrollToSection("#contact");
+              setIsMenuOpen(false);
+            }}
+          >
             CONTACT
-          </a>
+          </button>
         </li>
       </ul>
     </nav>

@@ -13,7 +13,8 @@
 /* Project Box & Image */
 .project1,
 .project2,
-.project3 {
+.project3,
+.project4 {
   display: grid;
   place-items: center;
   width: 40%;
@@ -23,7 +24,8 @@
 
 .project1 .imgProject1,
 .project2 .imgProject2,
-.project3 .imgProject3 {
+.project3 .imgProject3,
+.project4 .imgProject4 {
   height: auto;
   max-width: 100%;
   transition: 0.2s;
@@ -32,7 +34,8 @@
 
 .project1 .imgProject1:hover,
 .project2 .imgProject2:hover,
-.project3 .imgProject3:hover {
+.project3 .imgProject3:hover,
+.project4 .imgProject4:hover {
   transform: scale(0.96);
 }
 
@@ -151,7 +154,8 @@
 
   .project1,
   .project2,
-  .project3 {
+  .project3,
+  .project4 {
     width: 70%;
   }
 
@@ -177,7 +181,8 @@
 
   .project1,
   .project2,
-  .project3 {
+  .project3,
+  .project4 {
     width: 70%;
   }
 

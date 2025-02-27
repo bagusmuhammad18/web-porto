@@ -13,13 +13,19 @@ function Hero() {
     "tech explorer",
   ];
 
+  const scrollToSection = (id) => {
+    const section = document.querySelector(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   useEffect(() => {
     const typeSpeed = isDeleting ? 50 : 100;
     const delayBetween = 1500;
 
     const type = () => {
       const currentWord = words[index];
-      const shouldDelete = isDeleting ? 1 : 0;
 
       setText((prev) =>
         isDeleting
@@ -58,9 +64,9 @@ function Hero() {
             <span className="cursor" />
           </span>
         </p>
-        <a className="viewMore" href="#about">
+        <button className="viewMore" onClick={() => scrollToSection("#about")}>
           View More
-        </a>
+        </button>
       </div>
     </div>
   );
