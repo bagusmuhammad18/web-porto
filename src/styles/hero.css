@@ -18,7 +18,7 @@
 .hero .welcome p.lower {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   flex-wrap: nowrap;
   white-space: nowrap;
 }
@@ -45,7 +45,7 @@
   background-color: red;
   margin-left: 0.1em;
   transform: translateY(
-    0.1em
+    0.2em
   ); /* Sedikit digeser ke bawah supaya lebih panjang ke bawah */
   animation: blink 0.7s infinite;
 }

@@ -9,7 +9,6 @@ function Hero() {
   const words = [
     "front-end web developer",
     "mobile developer",
-    "UI/UX enthusiast",
     "tech explorer",
   ];
 
@@ -55,10 +54,10 @@ function Hero() {
       />
       <div className="welcome">
         <p className="upper">
-          Hello everyone, I am <span>Bagus</span>
+          Hello everyone, I am <span className="red-text">Bagus</span>
         </p>
         <p className="lower">
-          I'm a 
+          I'm a&nbsp;
           <span className="dynamic">
             {text}
             <span className="cursor" />
