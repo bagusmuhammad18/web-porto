@@ -1,0 +1,179 @@
+.containerSkill {
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
+  row-gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.containerSkill .reactjs,
+.containerSkill .nodejs,
+.containerSkill .express,
+.containerSkill .mongodb,
+.containerSkill .vercel,
+.containerSkill .kotlin,
+.containerSkill .cpp,
+.containerSkill .python,
+.containerSkill .git,
+.containerSkill .opencv,
+.containerSkill .ros,
+.containerSkill .linux,
+.containerSkill .figma {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.containerSkill span {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10em;
+  width: 12em;
+  border: 1px solid red;
+  border-radius: 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.containerSkill img {
+  height: 5em;
+  padding: 10px;
+  margin: 10px;
+  transition: 0.2s linear;
+  object-fit: contain;
+  max-width: 100%;
+}
+
+.containerSkill .ros img {
+  height: 4.5em;
+  max-width: 90%;
+}
+
+.containerSkill .express img,
+.containerSkill .vercel img {
+  filter: brightness(1.5) invert(1);
+}
+
+.containerSkill .reactjs p,
+.containerSkill .nodejs p,
+.containerSkill .express p,
+.containerSkill .mongodb p,
+.containerSkill .vercel p,
+.containerSkill .kotlin p,
+.containerSkill .cpp p,
+.containerSkill .python p,
+.containerSkill .git p,
+.containerSkill .opencv p,
+.containerSkill .ros p,
+.containerSkill .linux p,
+.containerSkill .figma p,
+.containerSkill .child.skill-name {
+  font-family: "Montserrat", Arial;
+  font-size: 1em;
+  font-weight: 600;
+  margin-bottom: 10px;
+  transition: 0.2s linear;
+  color: #fff;
+}
+
+.containerSkill span:hover .child,
+.containerSkill .no-image {
+  opacity: 0.08;
+}
+
+.completion {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: 0.9em;
+  font-weight: 600;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  transition: 0.3s;
+  color: #fff;
+}
+
+.completion:hover {
+  opacity: 100;
+}
+
+@media screen and (min-width: 600px) and (max-width: 1025px) {
+  .containerSkill {
+    gap: 1rem;
+  }
+
+  .containerSkill span {
+    margin-bottom: 0px;
+    height: 8em;
+    width: 9em;
+  }
+
+  .containerSkill img {
+    height: 4em;
+  }
+
+  .containerSkill .ros img {
+    height: 3.5em;
+  }
+
+  .containerSkill .nodejs img,
+  .containerSkill .express img,
+  .containerSkill .mongodb img,
+  .containerSkill .vercel img,
+  .containerSkill .git img,
+  .containerSkill .linux img {
+    filter: brightness(1.5) invert(1);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .containerSkill {
+    width: 100vmin;
+    gap: 1rem;
+  }
+
+  .containerSkill span {
+    margin-bottom: 0px;
+    height: 8em;
+    width: 9em;
+  }
+
+  .containerSkill img {
+    height: 4em;
+  }
+
+  .containerSkill .ros img {
+    height: 3.5em;
+  }
+
+  .containerSkill .nodejs img,
+  .containerSkill .express img,
+  .containerSkill .mongodb img,
+  .containerSkill .vercel img,
+  .containerSkill .git img,
+  .containerSkill .linux img {
+    filter: brightness(1.5) invert(1);
+  }
+}

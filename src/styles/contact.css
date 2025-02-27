@@ -1,0 +1,121 @@
+.contactDesc {
+  font-family: "Montserrat", Arial;
+  width: 45vw;
+  font-size: 1.2em;
+  margin: 1em;
+  line-height: 1.4em;
+  text-align: justify;
+  font-weight: smaller;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  flex-direction: column;
+  gap: 0.7em;
+  margin-top: 1em;
+}
+
+form input,
+form textarea {
+  box-sizing: border-box;
+  background-color: #282828;
+  padding-left: 1em;
+  border: 0;
+  color: #fff;
+  font-family: "Montserrat", Arial;
+}
+
+form ::placeholder {
+  color: #fff;
+  opacity: 0.5;
+}
+
+form input {
+  width: 45vw;
+  height: 7vh;
+}
+
+form textarea {
+  width: 45vw;
+  height: 30vh;
+  padding-top: 0.6em;
+  resize: none;
+}
+
+form button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 20vh;
+  height: 7vh;
+  color: #fff;
+  background-color: rgba(255, 0, 0, 0);
+  transition: 0.3s !important;
+  border: 0;
+  margin-top: 1vh;
+  margin-bottom: 10vh;
+  letter-spacing: 3px;
+  padding: 0px;
+  cursor: pointer;
+  border-radius: 3%;
+}
+
+form button:hover {
+  background-color: rgba(255, 0, 0, 0.6);
+}
+
+@media screen and (min-width: 600px) and (max-width: 1025px) {
+  .contactDesc {
+    width: 85vw;
+    font-size: 1.2rem;
+    text-align: left;
+  }
+
+  form input {
+    width: 85vw;
+    height: 7vh;
+    font-size: 1.2rem;
+  }
+
+  form textarea {
+    width: 85vw;
+    height: 30vh;
+    font-size: 1.2rem;
+  }
+
+  form button {
+    width: 7rem;
+    height: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .contactDesc {
+    width: 85%;
+    font-size: 1.2rem;
+    text-align: left;
+  }
+
+  form input {
+    width: 85vw;
+    height: 7vh;
+    font-size: 1.2rem;
+  }
+
+  form textarea {
+    width: 85vw;
+    height: 30vh;
+    font-size: 1.2rem;
+  }
+
+  form button {
+    width: 7rem;
+    height: 3.5rem;
+  }
+}

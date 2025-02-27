@@ -1,0 +1,197 @@
+/* src/styles/projects.css */
+/* Container Projects */
+.project {
+  display: flex;
+  width: 100vw;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5vmin;
+}
+
+/* Project Box & Image */
+.project1,
+.project2,
+.project3 {
+  display: grid;
+  place-items: center;
+  width: 40%;
+  height: auto;
+  cursor: pointer;
+}
+
+.project1 .imgProject1,
+.project2 .imgProject2,
+.project3 .imgProject3 {
+  height: auto;
+  max-width: 100%;
+  transition: 0.2s;
+  border-radius: 10px;
+}
+
+.project1 .imgProject1:hover,
+.project2 .imgProject2:hover,
+.project3 .imgProject3:hover {
+  transform: scale(0.96);
+}
+
+/* Pop-up Styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.popup-content {
+  background-color: #1f1f1f;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  color: #fff;
+  position: relative;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  max-height: 85vh;
+  display: grid;
+  gap: 15px;
+}
+
+/* Pop-up Header */
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.popup-header h2 {
+  margin: 0;
+  font-size: 1.8em;
+  color: #fff;
+  border-bottom: 2px solid #ff4444; /* Konsisten dengan warna link */
+  padding-bottom: 10px;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  color: #fff;
+  font-size: 1.5em;
+  transition: color 0.3s;
+}
+
+.close-button:hover {
+  color: #ff6666;
+}
+
+.close-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Pop-up Section */
+.popup-section {
+  margin: 0;
+}
+
+.popup-section h3 {
+  font-size: 1.2em;
+  color: #ff4444; /* Ganti dari #ff6666 ke #ff4444 */
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.tech-list,
+.feature-list,
+.link-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.tech-list li,
+.feature-list li,
+.link-list li {
+  margin: 5px 0;
+  font-size: 1em;
+  color: #ddd;
+}
+
+.link-list a {
+  color: #ff4444; /* Warna link yang sama */
+  text-decoration: none;
+}
+
+.link-list a:hover {
+  text-decoration: underline;
+}
+
+/* Pop-up Footer (kosong karena tombol dipindah) */
+.popup-footer {
+  display: none;
+}
+
+/* Responsive */
+@media screen and (min-width: 600px) and (max-width: 1025px) {
+  .project {
+    gap: 5vmin;
+  }
+
+  .project1,
+  .project2,
+  .project3 {
+    width: 70%;
+  }
+
+  .popup-content {
+    width: 80%;
+    max-width: 700px;
+    padding: 20px;
+  }
+
+  .popup-header h2 {
+    font-size: 1.6em;
+  }
+
+  .close-button {
+    font-size: 1.3em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .project {
+    gap: 5vmin;
+  }
+
+  .project1,
+  .project2,
+  .project3 {
+    width: 70%;
+  }
+
+  .popup-content {
+    width: 90%;
+    padding: 15px;
+    max-width: 400px;
+  }
+
+  .popup-header h2 {
+    font-size: 1.4em;
+  }
+
+  .close-button {
+    font-size: 1.2em;
+  }
+}
