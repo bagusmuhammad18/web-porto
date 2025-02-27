@@ -203,7 +203,7 @@ function Projects() {
       <div className="project">
         {projectsData.map((project) => (
           <div
-            className={`project${project.id}`}
+            className={`project${project.id} hidden`}
             key={project.id}
             onClick={() => handleImageClick(project)}
           >

@@ -57,13 +57,34 @@ footer {
   height: 1.9em;
 }
 
-@media screen and (max-width: 600px) {
-  .footer-icons {
-    gap: 1.5em;
+/* Untuk tablet besar (iPad, 1024x1366) */
+@media screen and (max-width: 1366px) {
+  .github_logo,
+  .linkedin_logo {
+    width: 3em; /* Lebih besar untuk tablet besar */
   }
 
-  #goTop {
-    bottom: 10px;
-    right: 10px;
+  .footer-icons {
+    gap: 1.5em; /* Jarak antar ikon */
+  }
+}
+
+/* Untuk tablet lebih kecil */
+@media screen and (max-width: 1024px) {
+  .github_logo,
+  .linkedin_logo {
+    width: 3em; /* Ukuran icon */
+  }
+}
+
+/* Untuk ponsel */
+@media screen and (max-width: 600px) {
+  .github_logo,
+  .linkedin_logo {
+    width: 3em;
+  }
+
+  .footer-icons {
+    gap: 1em;
   }
 }

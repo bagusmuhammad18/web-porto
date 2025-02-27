@@ -1,11 +1,11 @@
-// src/components/Navbar.jsx
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import FeatherIcon from "feather-icons-react";
 import "../styles/navbar.css";
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const scrollToSection = (id) => {
     const section = document.querySelector(id);
@@ -34,6 +34,25 @@ function Navbar() {
     };
   }, []);
 
+  // Tutup menu saat klik di luar
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
   return (
     <nav id="navbar" className={isScrolled ? "navScroll" : ""}>
       <FeatherIcon
@@ -41,7 +60,7 @@ function Navbar() {
         id="hamburger-menu"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       />
-      <ul className={isMenuOpen ? "active" : ""}>
+      <ul ref={menuRef} className={isMenuOpen ? "active" : ""}>
         <li>
           <button
             onClick={() => {
