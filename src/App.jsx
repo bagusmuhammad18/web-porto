@@ -26,13 +26,13 @@ function App() {
       </div>
       <a
         id="goTop"
-        href="#home"
-        style={{
-          position: "fixed",
-          bottom: "20px",
-          right: "20px",
-          zIndex: 999999999,
-        }} // Inline style sementara
+        href="#"
+        onClick={(e) => {
+          e.preventDefault(); // Mencegah perubahan URL
+          document
+            .querySelector(".wrapper")
+            .scrollTo({ top: 0, behavior: "smooth" }); // Scroll halus ke atas
+        }}
       >
         <svg
           width="24"

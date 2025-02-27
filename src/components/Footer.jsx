@@ -26,9 +26,6 @@ function Footer() {
           </a>
         </div>
       </footer>
-      <a id="goTop" href="#home">
-        <FeatherIcon icon="chevron-up" />
-      </a>
     </>
   );
 }

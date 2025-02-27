@@ -5,13 +5,11 @@ function useScrollEffects() {
   useEffect(() => {
     const wrapper = document.querySelector(".wrapper");
     if (!wrapper) {
-      console.error("Wrapper not found in useScrollEffects");
       return;
     }
 
     const goTop = document.getElementById("goTop");
     if (!goTop) {
-      console.error("GoTop not found");
       return;
     }
 
