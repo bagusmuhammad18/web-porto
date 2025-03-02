@@ -49,7 +49,7 @@ function Hero() {
       <div className="overlay"></div>
       <img
         className="background"
-        src="/assets/img/city.jpg"
+        src="/assets/img/city_compressed.jpg"
         alt="city background"
       />
       <div className="welcome">

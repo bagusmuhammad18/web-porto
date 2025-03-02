@@ -1,5 +1,4 @@
 // src/components/Footer.jsx
-import FeatherIcon from "feather-icons-react";
 import "../styles/footer.css";
 
 function Footer() {

@@ -1,17 +1,17 @@
 .contactDesc {
-  font-family: "Montserrat", Arial;
+  font-family: "Montserrat", Arial, sans-serif;
   width: 45vw;
   font-size: 1.2em;
   margin: 1em;
   line-height: 1.4em;
   text-align: justify;
-  font-weight: smaller;
+  font-weight: 400;
 }
 
 form {
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end;
   flex-direction: column;
   gap: 0.7em;
   margin-top: 1em;
@@ -22,9 +22,9 @@ form textarea {
   box-sizing: border-box;
   background-color: #282828;
   padding-left: 1em;
-  border: 0;
+  border: none;
   color: #fff;
-  font-family: "Montserrat", Arial;
+  font-family: "Montserrat", Arial, sans-serif;
 }
 
 form ::placeholder {
@@ -55,13 +55,13 @@ form button {
   width: 20vh;
   height: 7vh;
   color: #fff;
-  background-color: rgba(255, 0, 0, 0);
-  transition: 0.3s !important;
-  border: 0;
+  background-color: transparent;
+  transition: background-color 0.3s;
+  border: none;
   margin-top: 1vh;
   margin-bottom: 10vh;
   letter-spacing: 3px;
-  padding: 0px;
+  padding: 0;
   cursor: pointer;
   border-radius: 3%;
 }

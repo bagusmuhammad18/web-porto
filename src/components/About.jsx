@@ -1,16 +1,40 @@
-// Contoh untuk src/components/About.jsx
 import "../styles/about.css";
+import { Helmet } from "react-helmet-async";
 
 function About() {
   return (
     <>
+      <Helmet>
+        <title>About Me - Bagus | Full-Stack Developer & AI Enthusiast</title>
+        <meta
+          name="description"
+          content="I'm Bagus, a final-year Electronics and Instrumentation student at UGM, passionate about building full-stack websites, mobile apps, and AI-powered solutions. Explore my journey in tech!"
+        />
+        <meta
+          name="keywords"
+          content="Bagus, Full-Stack Developer, Mobile Developer, AI Engineer, Electronics, Universitas Gadjah Mada, Web Development, Machine Learning"
+        />
+        <meta name="author" content="Bagus" />
+        <meta property="og:title" content="About Me - Bagus" />
+        <meta
+          property="og:description"
+          content="Discover Bagus' journey as a tech enthusiast, building websites, mobile apps, and AI solutions at Universitas Gadjah Mada."
+        />
+        <meta property="og:image" content="/assets/img/bagus.png" />
+        <meta
+          property="og:url"
+          content="https://your-portfolio-site.com/about"
+        />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+
       <h3 id="about" className="hidden">
         <span className="underline"></span>About
       </h3>
       <img
         className="profilePhoto hidden"
         src="/assets/img/bagus.png"
-        alt="bagus_photo"
+        alt="Bagus - Full-Stack Developer"
       />
       <p className="about hidden">
         I’m Bagus, a final-year Electronics and Instrumentation student at

@@ -1,9 +1,12 @@
-// src/components/Projects.jsx
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { createPortal } from "react-dom";
 import "../styles/projects.css";
+import { Helmet } from "react-helmet-async";
 
-// Fungsi buat kapital huruf pertama
+// Lazy load gambar untuk performa
+const ProjectImage = lazy(() => import("./ProjectImage"));
+
+// Fungsi untuk kapitalisasi huruf pertama
 const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
@@ -24,6 +27,7 @@ function Projects() {
     {
       id: 1,
       imgSrc: "/assets/img/swagger.png",
+      alt: "Fish Marketplace Web Backend - Node.js Project",
       title: "Fish Marketplace Web Backend",
       technologies: {
         Backend: "Node.js, Express.js",
@@ -47,7 +51,7 @@ function Projects() {
     {
       id: 2,
       imgSrc: "/assets/img/sobatfeses.png",
-      alt: "Digestive Disease Detection",
+      alt: "AI Digestive Disease Detection Platform",
       title: "AI Digestive Disease Detection Platform",
       technologies: {
         Frontend: "HTML, CSS, JavaScript",
@@ -68,7 +72,7 @@ function Projects() {
     {
       id: 3,
       imgSrc: "/assets/img/yolo.png",
-      alt: "YOLO Object Detection",
+      alt: "YOLO Object Detection - Python Project",
       title: "YOLO Object Detection",
       technologies: {
         language: "Python",
@@ -83,7 +87,7 @@ function Projects() {
     {
       id: 4,
       imgSrc: "/assets/img/iconnect.png",
-      alt: "iConnect Sign Language Translator",
+      alt: "iConnect Sign Language Translator - Android App",
       title: "iConnect Sign Language Translator",
       technologies: {
         Mobile: "Android",
@@ -112,7 +116,7 @@ function Projects() {
     <div className="popup-overlay" onClick={handleClosePopup}>
       <div className="popup-content" onClick={(e) => e.stopPropagation()}>
         <header className="popup-header">
-          <h2>{selectedProject.title}</h2>
+          <h1>{selectedProject.title}</h1>
           <button className="close-button" onClick={handleClosePopup}>
             <svg
               width="24"
@@ -123,6 +127,7 @@ function Projects() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
+              aria-label="Close Popup"
             >
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -130,7 +135,7 @@ function Projects() {
           </button>
         </header>
         <section className="popup-section">
-          <h3>Technologies Used</h3>
+          <h2>Technologies Used</h2>
           <ul className="tech-list">
             {selectedProject.technologies &&
               Object.entries(selectedProject.technologies).map(
@@ -146,7 +151,7 @@ function Projects() {
           </ul>
         </section>
         <section className="popup-section">
-          <h3>Main Features</h3>
+          <h2>Main Features</h2>
           <ul className="feature-list">
             {selectedProject.features.map((feature, index) => (
               <li key={index}>{feature}</li>
@@ -154,7 +159,7 @@ function Projects() {
           </ul>
         </section>
         <section className="popup-section">
-          <h3>Links</h3>
+          <h2>Project Links</h2>
           <ul className="link-list">
             {selectedProject.githubLink && (
               <li>
@@ -162,6 +167,7 @@ function Projects() {
                   href={selectedProject.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  title={`GitHub Repository for ${selectedProject.title}`}
                 >
                   GitHub Repository
                 </a>
@@ -173,6 +179,7 @@ function Projects() {
                   href={selectedProject.apiDocLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  title={`API Documentation for ${selectedProject.title}`}
                 >
                   API Documentation
                 </a>
@@ -184,6 +191,7 @@ function Projects() {
                   href={selectedProject.youtubeLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  title={`Watch ${selectedProject.title} on YouTube`}
                 >
                   Watch on YouTube
                 </a>
@@ -197,7 +205,31 @@ function Projects() {
 
   return (
     <>
-      <h3 id="projects">
+      <Helmet>
+        <title>My Projects - Bagus | Full-Stack Developer & AI Solutions</title>
+        <meta
+          name="description"
+          content="Explore my portfolio of full-stack web applications, mobile apps, and AI-powered solutions including marketplaces, machine learning models, and innovative tech projects."
+        />
+        <meta
+          name="keywords"
+          content="Bagus, Portfolio Projects, Web Development, Mobile Apps, AI Solutions, Full-Stack, Node.js, React, TensorFlow, YOLO"
+        />
+        <meta name="author" content="Bagus" />
+        <meta property="og:title" content="Projects - Bagus" />
+        <meta
+          property="og:description"
+          content="Discover Bagus' portfolio of web, mobile, and AI projects showcasing innovative solutions and technical skills."
+        />
+        <meta property="og:image" content="/assets/img/swagger.png" />
+        <meta
+          property="og:url"
+          content="https://your-portfolio-site.com/projects"
+        />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+
+      <h3 id="projects" className="hidden">
         <span className="underline"></span>Projects
       </h3>
       <div className="project">
@@ -207,11 +239,14 @@ function Projects() {
             key={project.id}
             onClick={() => handleImageClick(project)}
           >
-            <img
-              className={`imgProject${project.id}`}
-              src={project.imgSrc}
-              alt={project.alt}
-            />
+            <Suspense fallback={<div>Loading...</div>}>
+              <ProjectImage
+                className={`imgProject${project.id}`}
+                src={project.imgSrc}
+                alt={project.alt}
+              />
+            </Suspense>
+            <h3 className="project-title">{project.title}</h3>
           </div>
         ))}
       </div>
